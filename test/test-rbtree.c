@@ -15,6 +15,7 @@ void test_init(void) {
   assert(t->root == NULL);
 #endif
   delete_rbtree(t);
+  printf("1. sucess\n");
 }
 
 // root node should have proper values and pointers
@@ -35,6 +36,7 @@ void test_insert_single(const key_t key) {
   assert(p->parent == NULL);
 #endif
   delete_rbtree(t);
+  printf("2. sucess\n");
 }
 
 // find should return the node with the key or NULL if no such node exists
@@ -51,6 +53,7 @@ void test_find_single(const key_t key, const key_t wrong_key) {
   assert(q == NULL);
 
   delete_rbtree(t);
+  printf("3. sucess\n");
 }
 
 // erase should delete root node
@@ -69,6 +72,7 @@ void test_erase_root(const key_t key) {
 #endif
 
   delete_rbtree(t);
+  printf("4. sucess\n");
 }
 
 static void insert_arr(rbtree *t, const key_t *arr, const size_t n) {
@@ -368,10 +372,10 @@ void test_find_erase_rand(const size_t n, const unsigned int seed) {
 }
 
 int main(void) {
-  test_init();
-  test_insert_single(1024);
-  test_find_single(512, 1024);
-  test_erase_root(128);
+  test_init(); //성공
+  test_insert_single(1024); //성공
+  test_find_single(512, 1024); //성공
+  test_erase_root(128); //성공
   test_find_erase_fixed();
   test_minmax_suite();
   test_to_array_suite();
@@ -379,5 +383,5 @@ int main(void) {
   test_duplicate_values();
   test_multi_instance();
   test_find_erase_rand(10000, 17);
-  printf("Passed all tests!\n");
+   printf("Passed all tests!\n");
 }
